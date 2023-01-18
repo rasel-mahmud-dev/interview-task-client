@@ -9,18 +9,20 @@ const Posts = () => {
 
 
     useEffect(()=>{
-
+        // initially fetch all posts
         dispatch(getAllPosts())
-
     }, [])
+
 
     return (
         <div>
-            <h1 className="font-semibold text-lg">All Posts</h1>
-            {posts?.map(post=>(
-                <Post key={post_id} {...post} />
-            ))}
+            <h1 className="font-semibold text-lg">All Posts ({posts?.length})</h1>
+            <div className="border m-4 rounded">
+                {posts?.map(post=>(
+                    <Post key={post._id} {...post} />
+                ))}
 
+            </div>
         </div>
     );
 };

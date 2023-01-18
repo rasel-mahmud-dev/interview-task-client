@@ -6,8 +6,9 @@ import api from "../api";
 export function getAllPosts() {
     return async function (dispatch) {
         try {
-            let {status, data} = api.get("/api/posts")
+            let {status, data} = await api.get("/api/posts")
             if (status === 200) {
+                console.log(data)
                 dispatch({
                     type: "FETCH_POSTS",
                     payload: data
@@ -26,7 +27,7 @@ export function getAllPosts() {
 export function addPost(postData) {
     return async function (dispatch) {
         try {
-            let {status, data} = api.post("/api/post", postData)
+            let {status, data} =await api.post("/api/posts", postData)
             if (status === 201) {
                 dispatch({
                     type: "ADD_POST",
@@ -47,7 +48,7 @@ export function addPost(postData) {
 export function deletePost(postId) {
     return async function (dispatch) {
         try {
-            let {status, data} = api.delete("/api/post/"+ postId)
+            let {status, data} = await api.delete("/api/posts/"+ postId)
             if (status === 201) {
                 dispatch({
                     type: "DELETE_POST",
@@ -67,11 +68,11 @@ export function deletePost(postId) {
 export function updatePost(postId, postData) {
     return async function (dispatch) {
         try {
-            let {status, data} = api.patch("/api/post/"+ postId, postData)
+            let {status, data} = await api.patch("/api/posts/"+ postId, postData)
             if (status === 201) {
                 dispatch({
                     type: "UPDATE_POST",
-                    payload: data
+                    payload: {_id: postId, ...postData}
                 })
             }
         } catch (ex) {
@@ -80,3 +81,4 @@ export function updatePost(postId, postData) {
 
     }
 }
+

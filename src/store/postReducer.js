@@ -1,6 +1,7 @@
 
 const initialState = {
-    posts: []
+    posts: [],
+    updatePostId: -1,
 }
 
 function postReducer(state=initialState, action){
@@ -18,7 +19,8 @@ function postReducer(state=initialState, action){
                 posts: [
                     ...state.posts,
                     action.payload
-                ]
+                ],
+                updatePostId: -1
             }
 
         case "DELETE_POST" :
@@ -38,7 +40,14 @@ function postReducer(state=initialState, action){
             }
             return {
                 ...state,
+                updatePostId: -1,
                 posts: updatedPosts
+            }
+
+        case "SET_ID_FOR_UPDATE_POST" :
+            return {
+                ...state,
+                updatePostId:  action.payload
             }
 
         default :
