@@ -14,10 +14,20 @@ const Posts = () => {
     }, [])
 
 
+    function handleSort(){
+        dispatch({
+            type: "SORTING_POSTS"
+        })
+    }
+
+
     return (
         <div>
-            <h1 className="font-semibold text-lg">All Posts ({posts?.length})</h1>
-            <div className="border m-4 rounded">
+            <div className="flex justify-between">
+                <h1 className="font-semibold text-lg">All Posts ({posts?.length})</h1>
+                <button className="btn" onClick={handleSort}>Sort</button>
+            </div>
+            <div className="border my-4 rounded">
                 {posts?.map(post=>(
                     <Post key={post._id} {...post} />
                 ))}

@@ -1,7 +1,9 @@
+import handleSort from "../utils/sort";
 
 const initialState = {
     posts: [],
     updatePostId: -1,
+
 }
 
 function postReducer(state=initialState, action){
@@ -13,13 +15,22 @@ function postReducer(state=initialState, action){
                 posts: action.payload
             }
 
-        case "ADD_POST" :
+        case "SORTING_POSTS" :
+
             return {
                 ...state,
-                posts: [
-                    ...state.posts,
-                    action.payload
-                ],
+                posts: handleSort(state.posts)
+            }
+
+
+        case "ADD_POST" :
+            let allPost = [
+            ...state.posts,
+                action.payload
+            ]
+            return {
+                ...state,
+                posts: handleSort(allPost),
                 updatePostId: -1
             }
 
