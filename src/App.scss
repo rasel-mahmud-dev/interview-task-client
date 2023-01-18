@@ -1,0 +1,17 @@
+#root {
+
+}
+
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.btn{
+  @apply bg-blue-600 px-4 py-1 rounded text-white
+}
