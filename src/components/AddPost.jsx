@@ -61,16 +61,16 @@ const AddPost = () => {
         <div className="py-4">
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col">
-                    <label htmlFor="" className="text-base font-semibold">Add Post</label>
+                    <label htmlFor="" className="text-lg font-semibold">Add Post</label>
                     <textarea
                         name="post"
                         value={postData.post}
                         onChange={handleChange}
                         placeholder="Enter Post"
-                        className="bg-white px-4 py-2 border border-gray-600 rounded"
+                        className="bg-white px-4 py-2 border border-gray-300 rounded outline-none focus:border-blue-600"
                     >{postData.post}</textarea>
                 </div>
-                <button className="btn mt-2">Submit</button>
+                <button className="btn mt-2">Publish</button>
             </form>
         </div>
     );

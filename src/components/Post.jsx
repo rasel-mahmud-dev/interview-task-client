@@ -22,11 +22,11 @@ const Post = ({post, _id}) => {
     return (
         <div className="my-4 border-b  p-4">
             <div className="grid grid-cols-12 gap-4">
-                <div className="col-span-1 w-10 h-10 rounded-full border flex items-center justify-center font-semibold">
+                <div className="text-blue-500 col-span-1 w-10 h-10 rounded-full border flex items-center justify-center font-semibold">
                     {post.substring(0, 1)}
                 </div>
                 <div className="col-span-9">
-                    <p className="text-gray-800">{post}</p>
+                    <p className="text-neutral-700 text-sm">{post}</p>
                 </div>
                 <div className="col-span-2">
                     <button className="btn" onClick={()=>handleUpdatePost(_id)}>Edit</button>
